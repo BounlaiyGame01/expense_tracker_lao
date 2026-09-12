@@ -1,0 +1,28 @@
+name: expense_tracker_lao
+description: >
+  Mobile Personal Expense and Budget Management Application
+  for University Students in Laos (Flutter, White & Blue theme).
+  DEMO MODE: runs with in-memory sample data, no database/backend needed.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  fl_chart: ^0.66.0         # Pie / Bar / Line charts for Reports screen
+  intl: ^0.19.0             # Date & currency (LAK) formatting
+  provider: ^6.1.1          # Simple state management wiring UI -> services
+  http: ^1.6.0
+  mysql1: ^0.20.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
