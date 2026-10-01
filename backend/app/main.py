@@ -22,19 +22,6 @@ app.include_router(categories.router)
 app.include_router(transactions.router)
 app.include_router(budgets.router)
 
-DEFAULT_CATEGORIES = [
-    ("Food", "food", 0xFFE57373, "expense"),
-    ("Transport", "transport", 0xFF64B5F6, "expense"),
-    ("Education", "education", 0xFF9575CD, "expense"),
-    ("Shopping", "shopping", 0xFFFFB74D, "expense"),
-    ("Entertainment", "entertainment", 0xFF4DB6AC, "expense"),
-    ("Bills", "bills", 0xFF90A4AE, "expense"),
-    ("Health", "health", 0xFFF06292, "expense"),
-    ("Other", "other", 0xFFA1887F, "expense"),
-    ("Salary/Allowance", "salary", 0xFF388E3C, "income"),
-    ("Gift", "gift", 0xFF7CB342, "income"),
-    ("Part-time job", "parttime", 0xFF00897B, "income"),
-]
 
 
 @app.on_event("startup")
@@ -43,7 +30,19 @@ def seed_default_categories():
     db = SessionLocal()
     try:
         if db.query(models.Category).count() == 0:
-            for name, icon_name, color_value, ctype in DEFAULT_CATEGORIES:
+            for name, icon_name, color_value, ctype in [
+                ("Salary", "attach_money", 0xFF4CAF50, models.CategoryType.income),
+                ("Business", "business_center", 0xFF4CAF50, models.CategoryType.income),
+                ("Food", "restaurant", 0xFFF44336, models.CategoryType.expense),
+                ("Transport", "directions_car", 0xFF2196F3, models.CategoryType.expense),
+                ("Shopping", "shopping_cart", 0xFFFFC107, models.CategoryType.expense),
+                ("Entertainment", "movie", 0xFF9C27B0, models.CategoryType.expense),
+                ("Health", "local_hospital", 0xFFE91E63, models.CategoryType.expense),
+                ("Education", "school", 0xFF3F51B5, models.CategoryType.expense),
+                ("Travel", "flight_takeoff", 0xFFFF5722, models.CategoryType.expense),
+                ("Utilities", "flash_on", 0xFF00BCD4, models.CategoryType.expense),
+                ("Others", "more_horiz", 0xFF9E9E9E, models.CategoryType.expense),
+            ]:
                 db.add(models.Category(
                     name=name, icon_name=icon_name, color_value=color_value, type=ctype
                 ))

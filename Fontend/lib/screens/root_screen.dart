@@ -3,6 +3,7 @@ import 'dashboard_screen.dart';
 import 'transaction_list_screen.dart';
 import 'budget_screen.dart';
 import 'reports_screen.dart';
+import 'setting_screen.dart';
 
 /// RootScreen hosts the 4 main app sections behind a bottom navigation bar.
 /// Categories management is reachable from the "category" icon on the Dashboard AppBar.
@@ -21,6 +22,7 @@ class _RootScreenState extends State<RootScreen> {
     TransactionListScreen(),
     BudgetScreen(),
     ReportsScreen(),
+    SettingScreen(),
   ];
 
   @override
@@ -35,6 +37,7 @@ class _RootScreenState extends State<RootScreen> {
           BottomNavigationBarItem(icon: Icon(Icons.receipt_long_outlined), activeIcon: Icon(Icons.receipt_long), label: 'Transactions'),
           BottomNavigationBarItem(icon: Icon(Icons.pie_chart_outline), activeIcon: Icon(Icons.pie_chart), label: 'Budget'),
           BottomNavigationBarItem(icon: Icon(Icons.bar_chart_outlined), activeIcon: Icon(Icons.bar_chart), label: 'Reports'),
+          BottomNavigationBarItem(icon: Icon(Icons.settings_outlined), activeIcon: Icon(Icons.settings), label: 'Settings'),
         ],
       ),
     );
